@@ -7,7 +7,7 @@ from pathlib import Path
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
-from tap_ServiceNow.client import ServiceNowStream
+from tap_servicenow.client import ServiceNowStream
 
 # TODO: Delete this is if not using json files for schema definition
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
@@ -15,52 +15,39 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 #       - Copy-paste as many times as needed to create multiple stream types.
 
 
-class UsersStream(ServiceNowStream):
+class InteractionStream(ServiceNowStream):
     """Define custom stream."""
 
-    name = "users"
-    path = "/users"
+    name = "interaction"
+    path = "/api/now/table/interaction?&type=chat"
     primary_keys: t.ClassVar[list[str]] = ["id"]
     replication_key = None
     # Optionally, you may also use `schema_filepath` in place of `schema`:
     # schema_filepath = SCHEMAS_DIR / "users.json"  # noqa: ERA001
     schema = th.PropertiesList(
-        th.Property("name", th.StringType),
+        th.Property("number", th.StringType),
         th.Property(
-            "id",
+            "sys_class_name",
             th.StringType,
-            description="The user's system ID",
+            description="Type of class",
         ),
         th.Property(
-            "age",
-            th.IntegerType,
-            description="The user's age in years",
-        ),
-        th.Property(
-            "email",
+            "sys_id",
             th.StringType,
-            description="The user's email address",
+            description="The ID of the record in the system.",
         ),
-        th.Property("street", th.StringType),
-        th.Property("city", th.StringType),
-        th.Property(
-            "state",
-            th.StringType,
-            description="State name in ISO 3166-2 format",
-        ),
-        th.Property("zip", th.StringType),
     ).to_dict()
 
 
-class GroupsStream(ServiceNowStream):
-    """Define custom stream."""
+# class GroupsStream(ServiceNowStream):
+#     """Define custom stream."""
 
-    name = "groups"
-    path = "/groups"
-    primary_keys: t.ClassVar[list[str]] = ["id"]
-    replication_key = "modified"
-    schema = th.PropertiesList(
-        th.Property("name", th.StringType),
-        th.Property("id", th.StringType),
-        th.Property("modified", th.DateTimeType),
-    ).to_dict()
+#     name = "groups"
+#     path = "/groups"
+#     primary_keys: t.ClassVar[list[str]] = ["id"]
+#     replication_key = "modified"
+#     schema = th.PropertiesList(
+#         th.Property("name", th.StringType),
+#         th.Property("id", th.StringType),
+#         th.Property("modified", th.DateTimeType),
+#     ).to_dict()

@@ -6,7 +6,7 @@ from singer_sdk import Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
 
 # TODO: Import your custom stream types here:
-from tap_ServiceNow import streams
+from tap_servicenow import streams
 
 
 class TapServiceNow(Tap):
@@ -17,17 +17,18 @@ class TapServiceNow(Tap):
     # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property(
-            "auth_token",
+            "username",
             th.StringType,
             required=True,
-            secret=True,  # Flag config as protected.
-            description="The token to authenticate against the API service",
+            secret=False,  # Flag config as protected.
+            description="The Username of the ServiceNow service account",
         ),
         th.Property(
-            "project_ids",
-            th.ArrayType(th.StringType),
+            "password",
+            th.StringType,
             required=True,
-            description="Project IDs to replicate",
+            secret=True,
+            description="The Password of the ServiceNow service account",
         ),
         th.Property(
             "start_date",
@@ -37,7 +38,7 @@ class TapServiceNow(Tap):
         th.Property(
             "api_url",
             th.StringType,
-            default="https://api.mysample.com",
+            default="https://slalomdev.service-now.com/api/",
             description="The url for the API service",
         ),
     ).to_dict()
@@ -49,8 +50,7 @@ class TapServiceNow(Tap):
             A list of discovered streams.
         """
         return [
-            streams.GroupsStream(self),
-            streams.UsersStream(self),
+            streams.InteractionStream(self),
         ]
 
 

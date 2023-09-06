@@ -6,7 +6,7 @@ readme = "README.md"
 authors = ["Michael Baillergeon <michael.baillergeon@slalom.com>"]
 keywords = [
     "ELT",
-    "ServiceNow",
+    "servicenow",
 ]
 license = "Apache-2.0"
 
@@ -33,7 +33,7 @@ ignore = [
     "ANN102",  # missing-type-cls
 ]
 select = ["ALL"]
-src = ["tap_ServiceNow"]
+src = ["tap_servicenow"]
 target-version = "py37"
 
 
@@ -41,7 +41,7 @@ target-version = "py37"
 allow-star-arg-any = true
 
 [tool.ruff.isort]
-known-first-party = ["tap_ServiceNow"]
+known-first-party = ["tap_servicenow"]
 
 [tool.ruff.pydocstyle]
 convention = "google"
@@ -52,4 +52,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 # CLI declaration
-tap-servicenow = 'tap_ServiceNow.tap:TapServiceNow.cli'
+tap-servicenow = 'tap_servicenow.tap:TapServiceNow.cli'
