@@ -14,13 +14,12 @@ class TapServiceNow(Tap):
 
     name = "tap-servicenow"
 
-    # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property(
             "username",
             th.StringType,
             required=True,
-            secret=False,  # Flag config as protected.
+            secret=False,
             description="The Username of the ServiceNow service account",
         ),
         th.Property(
@@ -51,6 +50,11 @@ class TapServiceNow(Tap):
         """
         return [
             streams.InteractionStream(self),
+            streams.IncidentStream(self),
+            streams.ScReqItemStream(self),
+            streams.SpLogStream(self),
+            streams.KbUseStream(self),
+
         ]
 
 
