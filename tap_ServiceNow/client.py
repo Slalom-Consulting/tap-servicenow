@@ -17,8 +17,7 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class ServiceNowPaginator(BaseOffsetPaginator):
     def has_more(self, response):
         data = response.json()
-        # return data.get('result', False)
-        return False
+        return data.get('result', False)
         
 
 class ServiceNowStream(RESTStream):
@@ -74,7 +73,7 @@ class ServiceNowStream(RESTStream):
         Returns:
             A pagination helper instance.
         """
-        return ServiceNowPaginator(start_value=0, page_size=10)
+        return ServiceNowPaginator(start_value=0, page_size=100)
 
     def get_url_params(
         self,
@@ -91,16 +90,16 @@ class ServiceNowStream(RESTStream):
             A dictionary of URL query parameters.
         """
         params: dict = {}
-        params["sysparm_limit"] = 10
-        #Next page token is an offset
-        # if next_page_token:
-        #     params["sysparm_offset"] = next_page_token
-        #     params["sysparm_limit"] = 10
-        # else:
-        #     params["sysparm_limit"] = 10
-        #     params["sysparm_offset"] = 0
-        #     next_page_token = 10
-        # next_page_token += 10
+        page_size = 100
+
+        params["sysparm_limit"] = page_size
+        # Next page token is an offset
+        if next_page_token:
+            params["sysparm_offset"] = next_page_token
+            next_page_token += page_size
+        else:
+            params["sysparm_offset"] = 0
+            next_page_token = page_size
         return params
 
 
