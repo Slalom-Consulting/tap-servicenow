@@ -17,7 +17,7 @@ class InteractionStream(ServiceNowStream):
     """Define Interaction stream."""
 
     name = "interaction"
-    path = "/api/now/table/interaction?&type=chat&sysparm_exclude_reference_link=true"
+    path = "/api/now/table/interaction?&sysparm_exclude_reference_link=true"
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
     replication_key = None
     schema = th.PropertiesList(

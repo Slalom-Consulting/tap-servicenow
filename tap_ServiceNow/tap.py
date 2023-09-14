@@ -37,9 +37,8 @@ class TapServiceNow(Tap):
         th.Property(
             "api_url",
             th.StringType,
-            default="https://slalomdev.service-now.com/api/",
             description="The url for the API service",
-        ),
+        )
     ).to_dict()
 
     def discover_streams(self) -> list[streams.ServiceNowStream]:
@@ -49,10 +48,10 @@ class TapServiceNow(Tap):
             A list of discovered streams.
         """
         return [
-            streams.InteractionStream(self),
-            streams.IncidentStream(self),
-            streams.ScReqItemStream(self),
-            streams.SpLogStream(self),
+            # streams.InteractionStream(self),
+            # streams.IncidentStream(self),
+            # streams.ScReqItemStream(self),
+            # streams.SpLogStream(self),
             streams.KbUseStream(self),
 
         ]
