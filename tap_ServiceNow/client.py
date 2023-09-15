@@ -26,11 +26,9 @@ class ServiceNowStream(RESTStream):
     @property
     def url_base(self) -> str:
         """Return the API URL root, configurable via tap settings."""
-        # TODO: hardcode a value here, or retrieve it from self.config
-        # return self.config.get("api_url")
-        return "https://slalomdev.service-now.com"
+        return self.config.get("api_url")
 
-    records_jsonpath = "$.result[*]"  # Or override `parse_response`.
+    records_jsonpath = "$.result[*]"
 
 
     @property
@@ -62,14 +60,7 @@ class ServiceNowStream(RESTStream):
 
     def get_new_paginator(self) -> ServiceNowPaginator:
         """Create a new pagination helper instance.
-
-        If the source API can make use of the `next_page_token_jsonpath`
-        attribute, or it contains a `X-Next-Page` header in the response
-        then you can remove this method.
-
-        If you need custom pagination that uses page numbers, "next" links, or
-        other approaches, please read the guide: https://sdk.meltano.com/en/v0.25.0/guides/pagination-classes.html.
-
+        
         Returns:
             A pagination helper instance.
         """
