@@ -13,7 +13,6 @@ from singer_sdk.streams import RESTStream
 
 _Auth = Callable[[requests.PreparedRequest], requests.PreparedRequest]
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
-
 class ServiceNowPaginator(BaseOffsetPaginator):
     def has_more(self, response):
         data = response.json()
@@ -22,7 +21,7 @@ class ServiceNowPaginator(BaseOffsetPaginator):
 
 class ServiceNowStream(RESTStream):
     """ServiceNow stream class."""
-
+    STATE_MSG_FREQUENCY = 10
     @property
     def url_base(self) -> str:
         """Return the API URL root, configurable via tap settings."""
@@ -82,7 +81,6 @@ class ServiceNowStream(RESTStream):
         """
         params: dict = {}
         page_size = 1000
-
         params["sysparm_limit"] = page_size
 
         #created sysparm_query for replication

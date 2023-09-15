@@ -13,7 +13,6 @@ class TapServiceNow(Tap):
     """ServiceNow tap class."""
 
     name = "tap-servicenow"
-
     config_jsonschema = th.PropertiesList(
         th.Property(
             "username",
