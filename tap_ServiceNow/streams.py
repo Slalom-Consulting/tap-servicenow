@@ -19,7 +19,8 @@ class IncidentStream(ServiceNowStream):
     name = "incident"
     path = "/api/now/table/incident?sysparm_exclude_reference_link=true"
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
-    replication_key = None
+    replication_key = "sys_updated_on"
+    is_sorted = True
     schema = th.PropertiesList(
         th.Property("active", th.BooleanType),
         th.Property("activity_due", th.StringType),
@@ -157,7 +158,8 @@ class InteractionStream(ServiceNowStream):
     name = "interaction"
     path = "/api/now/table/interaction?sysparm_exclude_reference_link=true"
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
-    replication_key = None
+    replication_key = "sys_updated_on"
+    is_sorted = True
     schema = th.PropertiesList(
         th.Property("active",th.BooleanType),
         th.Property("agent_average_response_time",th.DateTimeType),
@@ -236,7 +238,8 @@ class KbUseStream(ServiceNowStream):
     name = "kb_use"
     path = "/api/now/table/kb_use?sysparm_exclude_reference_link=true"
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
-    replication_key = None
+    replication_key = "sys_updated_on"
+    is_sorted = True
     schema = th.PropertiesList(
         th.Property("article_summary", th.StringType),
         th.Property("article", th.StringType),
@@ -262,7 +265,8 @@ class ScReqItemStream(ServiceNowStream):
     name = "sc_req_item"
     path = "/api/now/table/sc_req_item?sysparm_exclude_reference_link=true"
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
-    replication_key = None
+    replication_key = "sys_updated_on"
+    is_sorted = True
     schema = th.PropertiesList(
         th.Property("active", th.BooleanType),
         th.Property("activity_due", th.StringType),
@@ -371,7 +375,8 @@ class SpLogStream(ServiceNowStream):
     name = "sp_log"
     path = "/api/now/table/sp_log?sysparm_exclude_reference_link=true"
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
-    replication_key = None
+    replication_key = "sys_updated_on"
+    is_sorted = True
     schema = th.PropertiesList(
         th.Property("count", th.StringType),
         th.Property("id", th.StringType),
@@ -394,7 +399,8 @@ class SysDictionaryStream(ServiceNowStream):
     name = "sys_dictionary"
     path = "/api/now/table/sys_dictionary?sysparm_exclude_reference_link=true"
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
-    replication_key = None
+    replication_key = "sys_updated_on"
+    is_sorted = True
     schema = th.PropertiesList(
         th.Property("active", th.BooleanType),
         th.Property("array_denormalized", th.BooleanType),

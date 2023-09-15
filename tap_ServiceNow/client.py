@@ -60,7 +60,7 @@ class ServiceNowStream(RESTStream):
 
     def get_new_paginator(self) -> ServiceNowPaginator:
         """Create a new pagination helper instance.
-        
+
         Returns:
             A pagination helper instance.
         """
@@ -84,6 +84,12 @@ class ServiceNowStream(RESTStream):
         page_size = 1000
 
         params["sysparm_limit"] = page_size
+
+        #created sysparm_query for replication
+        starting_date = self.get_starting_timestamp(context)
+        params["sysparm_query"] = 'ORDERBYsys_updated_on'
+        if starting_date:
+            params["sysparm_query"] += f'^sys_updated_on>={starting_date.isoformat()}'
         # Next page token is an offset
         if next_page_token:
             params["sysparm_offset"] = next_page_token
@@ -91,6 +97,7 @@ class ServiceNowStream(RESTStream):
         else:
             params["sysparm_offset"] = 0
             next_page_token = page_size
+        self.logger.info(f'QUERY PARAMS: {params}')
         return params
 
 
