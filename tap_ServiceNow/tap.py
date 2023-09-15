@@ -49,12 +49,12 @@ class TapServiceNow(Tap):
             A list of discovered streams.
         """
         return [
-            streams.InteractionStream(self),
             streams.IncidentStream(self),
+            streams.InteractionStream(self),
+            streams.KbUseStream(self),
             streams.ScReqItemStream(self),
             streams.SpLogStream(self),
-            streams.KbUseStream(self),
-
+            streams.SysDictionaryStream(self),
         ]
 
 
