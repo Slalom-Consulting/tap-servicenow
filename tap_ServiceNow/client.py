@@ -73,7 +73,7 @@ class ServiceNowStream(RESTStream):
         Returns:
             A pagination helper instance.
         """
-        return ServiceNowPaginator(start_value=0, page_size=100)
+        return ServiceNowPaginator(start_value=0, page_size=1000)
 
     def get_url_params(
         self,
@@ -90,7 +90,7 @@ class ServiceNowStream(RESTStream):
             A dictionary of URL query parameters.
         """
         params: dict = {}
-        page_size = 100
+        page_size = 1000
 
         params["sysparm_limit"] = page_size
         # Next page token is an offset
