@@ -53,6 +53,7 @@ class TapServiceNow(Tap):
             streams.ScReqItemStream(self),
             streams.SpLogStream(self),
             streams.SysDictionaryStream(self),
+            streams.SysUserStream(self),
         ]
 
 

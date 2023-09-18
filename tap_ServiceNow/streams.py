@@ -9,7 +9,6 @@ from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_servicenow.client import ServiceNowStream
 
-# TODO: Delete this is if not using json files for schema definition
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
@@ -470,4 +469,25 @@ class SysDictionaryStream(ServiceNowStream):
         th.Property("widget", th.StringType),
         th.Property("write_roles", th.StringType),
         th.Property("xml_view", th.BooleanType),
+        ).to_dict()
+
+class SysUserStream(ServiceNowStream):
+    """Define SysUser stream."""
+
+    name = "sys_user"
+    path = "/api/now/table/sys_user?sysparm_exclude_reference_link=true"
+    primary_keys: t.ClassVar[list[str]] = ["sys_id"]
+    replication_key = "sys_updated_on"
+    is_sorted = True
+    schema = th.PropertiesList(
+        th.Property("active", th.BooleanType),
+        th.Property("email", th.StringType),
+        th.Property("employee_number", th.StringType),
+        th.Property("first_name", th.StringType),
+        th.Property("last_name", th.StringType),
+        th.Property("name", th.StringType),
+        th.Property("sys_class_name", th.StringType),
+        th.Property("sys_id", th.StringType),
+        th.Property("sys_updated_on", th.DateTimeType),
+        th.Property("user_name", th.StringType),
         ).to_dict()

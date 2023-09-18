@@ -21,7 +21,6 @@ class ServiceNowPaginator(BaseOffsetPaginator):
 
 class ServiceNowStream(RESTStream):
     """ServiceNow stream class."""
-    STATE_MSG_FREQUENCY = 10
     @property
     def url_base(self) -> str:
         """Return the API URL root, configurable via tap settings."""
@@ -53,8 +52,6 @@ class ServiceNowStream(RESTStream):
         headers = {}
         if "user_agent" in self.config:
             headers["User-Agent"] = self.config.get("user_agent")
-        # If not using an authenticator, you may also provide inline auth headers:
-        # headers["Private-Token"] = self.config.get("auth_token")  # noqa: ERA001
         return headers
 
     def get_new_paginator(self) -> ServiceNowPaginator:
