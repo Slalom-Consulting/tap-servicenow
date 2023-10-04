@@ -6,28 +6,27 @@ from singer_sdk import Tap
 from singer_sdk import typing as th  # JSON schema typing helpers
 
 # TODO: Import your custom stream types here:
-from tap_ServiceNow import streams
+from tap_servicenow import streams
 
 
 class TapServiceNow(Tap):
     """ServiceNow tap class."""
 
     name = "tap-servicenow"
-
-    # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property(
-            "auth_token",
+            "username",
             th.StringType,
             required=True,
-            secret=True,  # Flag config as protected.
-            description="The token to authenticate against the API service",
+            secret=False,
+            description="The Username of the ServiceNow service account",
         ),
         th.Property(
-            "project_ids",
-            th.ArrayType(th.StringType),
+            "password",
+            th.StringType,
             required=True,
-            description="Project IDs to replicate",
+            secret=True,
+            description="The Password of the ServiceNow service account",
         ),
         th.Property(
             "start_date",
@@ -37,9 +36,8 @@ class TapServiceNow(Tap):
         th.Property(
             "api_url",
             th.StringType,
-            default="https://api.mysample.com",
             description="The url for the API service",
-        ),
+        )
     ).to_dict()
 
     def discover_streams(self) -> list[streams.ServiceNowStream]:
@@ -49,8 +47,13 @@ class TapServiceNow(Tap):
             A list of discovered streams.
         """
         return [
-            streams.GroupsStream(self),
-            streams.UsersStream(self),
+            streams.IncidentStream(self),
+            streams.InteractionStream(self),
+            streams.KbUseStream(self),
+            streams.ScReqItemStream(self),
+            streams.SpLogStream(self),
+            streams.SysDictionaryStream(self),
+            streams.SysUserStream(self),
         ]
 
 

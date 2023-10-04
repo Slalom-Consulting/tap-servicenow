@@ -7,7 +7,7 @@ environments:
 plugins:
   extractors:
   - name: "tap-servicenow"
-    namespace: "tap_ServiceNow"
+    namespace: "tap_servicenow"
     pip_url: -e .
     capabilities:
     - state
