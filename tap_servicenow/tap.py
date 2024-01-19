@@ -51,8 +51,12 @@ class TapServiceNow(Tap):
             streams.InteractionStream(self),
             streams.KbUseStream(self),
             streams.ScReqItemStream(self),
+            streams.SCRequest(self),
+            streams.SCTaskStream(self),
             streams.SpLogStream(self),
+            streams.SysDbObjectStream(self),
             streams.SysDictionaryStream(self),
+            streams.SysUserGroup(self),
             streams.SysUserStream(self),
         ]
 
