@@ -58,6 +58,15 @@ class TapServiceNow(Tap):
             streams.SysDictionaryStream(self),
             streams.SysUserGroup(self),
             streams.SysUserStream(self),
+            streams.SnTaHiringCoreJobRequisitionStream(self),
+            streams.CmnCostCenterStream(self),
+            streams.UXlkSalesforceEngagementsStream(self),
+            streams.UXlkTaxonomyGeographiesStream(self),
+            streams.SnHrCoreJobProfileStream(self),
+            streams.UExternalLookupKeyStream(self),
+            streams.UXlkSalesforceOpportunitiesStream(self),
+            streams.SnHrCorePeopleRolesStream(self),
+            streams.CmnLocationStream(self),
         ]
 
 
