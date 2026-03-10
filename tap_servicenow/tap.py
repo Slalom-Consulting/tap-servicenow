@@ -62,7 +62,6 @@ class TapServiceNow(Tap):
             streams.CmnCostCenterStream(self),
             streams.UXlkSalesforceEngagementsStream(self),
             streams.UXlkTaxonomyGeographiesStream(self),
-            streams.SnHrCoreJobProfileStream(self),
             streams.UExternalLookupKeyStream(self),
             streams.UXlkSalesforceOpportunitiesStream(self),
             streams.SnHrCorePeopleRolesStream(self),

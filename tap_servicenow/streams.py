@@ -149,7 +149,8 @@ class IncidentStream(ServiceNowStream):
         th.Property("work_notes_list", th.StringType),
         th.Property("work_notes", th.StringType),
         th.Property("work_start", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class InteractionStream(ServiceNowStream):
     """Define Interaction stream."""
@@ -160,75 +161,76 @@ class InteractionStream(ServiceNowStream):
     replication_key = "sys_updated_on"
     is_sorted = True
     schema = th.PropertiesList(
-        th.Property("active",th.StringType),
-        th.Property("agent_average_response_time",th.DateTimeType),
-        th.Property("agent_chat",th.StringType),
-        th.Property("application",th.StringType),
-        th.Property("assigned_at",th.DateTimeType),
-        th.Property("assigned_to",th.StringType),
-        th.Property("assignment_group",th.StringType),
-        th.Property("auto_resolution",th.StringType),
-        th.Property("caller_phone_number",th.StringType),
-        th.Property("category",th.StringType),
-        th.Property("channel_metadata_document",th.StringType),
-        th.Property("channel_metadata_table",th.StringType),
-        th.Property("channel_user_profile",th.StringType),
-        th.Property("client_host",th.StringType),
-        th.Property("client_session_id",th.StringType),
-        th.Property("closed_at",th.DateTimeType),
-        th.Property("closed_by",th.StringType),
-        th.Property("company",th.StringType),
-        th.Property("connect_support",th.StringType),
-        th.Property("context_document",th.StringType),
-        th.Property("context_table",th.StringType),
-        th.Property("context",th.StringType),
-        th.Property("csat_score",th.StringType),
-        th.Property("direction",th.StringType),
-        th.Property("duration",th.DateTimeType),
-        th.Property("first_response_wait_time",th.DateTimeType),
-        th.Property("handling_duration",th.DateTimeType),
-        th.Property("help_request",th.StringType),
-        th.Property("help_requested_conversation",th.StringType),
-        th.Property("live_handoff_time",th.DateTimeType),
-        th.Property("location",th.StringType),
+        th.Property("active", th.StringType),
+        th.Property("agent_average_response_time", th.DateTimeType),
+        th.Property("agent_chat", th.StringType),
+        th.Property("application", th.StringType),
+        th.Property("assigned_at", th.DateTimeType),
+        th.Property("assigned_to", th.StringType),
+        th.Property("assignment_group", th.StringType),
+        th.Property("auto_resolution", th.StringType),
+        th.Property("caller_phone_number", th.StringType),
+        th.Property("category", th.StringType),
+        th.Property("channel_metadata_document", th.StringType),
+        th.Property("channel_metadata_table", th.StringType),
+        th.Property("channel_user_profile", th.StringType),
+        th.Property("client_host", th.StringType),
+        th.Property("client_session_id", th.StringType),
+        th.Property("closed_at", th.DateTimeType),
+        th.Property("closed_by", th.StringType),
+        th.Property("company", th.StringType),
+        th.Property("connect_support", th.StringType),
+        th.Property("context_document", th.StringType),
+        th.Property("context_table", th.StringType),
+        th.Property("context", th.StringType),
+        th.Property("csat_score", th.StringType),
+        th.Property("direction", th.StringType),
+        th.Property("duration", th.DateTimeType),
+        th.Property("first_response_wait_time", th.DateTimeType),
+        th.Property("handling_duration", th.DateTimeType),
+        th.Property("help_request", th.StringType),
+        th.Property("help_requested_conversation", th.StringType),
+        th.Property("live_handoff_time", th.DateTimeType),
+        th.Property("location", th.StringType),
         th.Property("number", th.StringType),
-        th.Property("number",th.StringType),
-        th.Property("opened_at",th.StringType),
-        th.Property("opened_by",th.StringType),
-        th.Property("opened_for",th.StringType),
-        th.Property("parent",th.StringType),
-        th.Property("provider_application",th.StringType),
-        th.Property("recording_url",th.StringType),
-        th.Property("requester_average_response_time",th.DateTimeType),
-        th.Property("sentiment",th.StringType),
-        th.Property("short_description",th.StringType),
-        th.Property("state_changed_on",th.DateTimeType),
-        th.Property("state_reason",th.StringType),
-        th.Property("state",th.StringType),
-        th.Property("subcategory",th.StringType),
-        th.Property("subtype",th.StringType),
-        th.Property("supervisor_joined_conversation",th.StringType),
-        th.Property("sys_class_name",th.StringType),
-        th.Property("sys_class_name",th.StringType),
-        th.Property("sys_created_by",th.StringType),
-        th.Property("sys_created_on",th.DateTimeType),
-        th.Property("sys_domain",th.StringType),
-        th.Property("sys_id",th.StringType),
-        th.Property("sys_mod_count",th.StringType),
-        th.Property("sys_tags",th.StringType),
-        th.Property("sys_updated_by",th.StringType),
-        th.Property("sys_updated_on",th.DateTimeType),
-        th.Property("system_wrap_up",th.StringType),
-        th.Property("transcript_download",th.StringType),
-        th.Property("type",th.StringType),
-        th.Property("user_language",th.StringType),
-        th.Property("verified",th.StringType),
-        th.Property("virtual_agent",th.StringType),
-        th.Property("voice_used",th.StringType),
-        th.Property("wait_time",th.DateTimeType),
-        th.Property("work_notes",th.StringType),
-        th.Property("wrap_up_duration",th.StringType),
+        th.Property("number", th.StringType),
+        th.Property("opened_at", th.StringType),
+        th.Property("opened_by", th.StringType),
+        th.Property("opened_for", th.StringType),
+        th.Property("parent", th.StringType),
+        th.Property("provider_application", th.StringType),
+        th.Property("recording_url", th.StringType),
+        th.Property("requester_average_response_time", th.DateTimeType),
+        th.Property("sentiment", th.StringType),
+        th.Property("short_description", th.StringType),
+        th.Property("state_changed_on", th.DateTimeType),
+        th.Property("state_reason", th.StringType),
+        th.Property("state", th.StringType),
+        th.Property("subcategory", th.StringType),
+        th.Property("subtype", th.StringType),
+        th.Property("supervisor_joined_conversation", th.StringType),
+        th.Property("sys_class_name", th.StringType),
+        th.Property("sys_class_name", th.StringType),
+        th.Property("sys_created_by", th.StringType),
+        th.Property("sys_created_on", th.DateTimeType),
+        th.Property("sys_domain", th.StringType),
+        th.Property("sys_id", th.StringType),
+        th.Property("sys_mod_count", th.StringType),
+        th.Property("sys_tags", th.StringType),
+        th.Property("sys_updated_by", th.StringType),
+        th.Property("sys_updated_on", th.DateTimeType),
+        th.Property("system_wrap_up", th.StringType),
+        th.Property("transcript_download", th.StringType),
+        th.Property("type", th.StringType),
+        th.Property("user_language", th.StringType),
+        th.Property("verified", th.StringType),
+        th.Property("virtual_agent", th.StringType),
+        th.Property("voice_used", th.StringType),
+        th.Property("wait_time", th.DateTimeType),
+        th.Property("work_notes", th.StringType),
+        th.Property("wrap_up_duration", th.StringType),
     ).to_dict()
+
 
 class KbUseStream(ServiceNowStream):
     """Define KbUse stream."""
@@ -255,7 +257,8 @@ class KbUseStream(ServiceNowStream):
         th.Property("used", th.StringType),
         th.Property("user", th.StringType),
         th.Property("viewed", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class ScReqItemStream(ServiceNowStream):
     """Define ScReqItem stream."""
@@ -365,7 +368,9 @@ class ScReqItemStream(ServiceNowStream):
         th.Property("work_notes_list", th.StringType),
         th.Property("work_notes", th.StringType),
         th.Property("work_start", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
+
 class SCRequest(ServiceNowStream):
     """Define SysUser stream."""
 
@@ -466,7 +471,9 @@ class SCRequest(ServiceNowStream):
         th.Property("work_notes_list", th.StringType),
         th.Property("work_notes", th.StringType),
         th.Property("work_start", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
+
 class SCTaskStream(ServiceNowStream):
     """Define SCTask stream."""
 
@@ -561,7 +568,9 @@ class SCTaskStream(ServiceNowStream):
         th.Property("work_notes_list", th.StringType),
         th.Property("work_notes", th.StringType),
         th.Property("work_start", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
+
 class SpLogStream(ServiceNowStream):
     """Define SpLog stream."""
 
@@ -584,7 +593,8 @@ class SpLogStream(ServiceNowStream):
         th.Property("table", th.StringType),
         th.Property("text", th.StringType),
         th.Property("type", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class SysDbObjectStream(ServiceNowStream):
     """Define SysDbObject stream."""
@@ -630,7 +640,9 @@ class SysDbObjectStream(ServiceNowStream):
         th.Property("update_access", th.StringType),
         th.Property("user_role", th.StringType),
         th.Property("ws_access", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
+
 class SysDictionaryStream(ServiceNowStream):
     """Define SysDictionary stream."""
 
@@ -648,7 +660,9 @@ class SysDictionaryStream(ServiceNowStream):
         th.Property("calculation", th.StringType),
         th.Property("choice_field", th.StringType),
         th.Property("choice_table", th.StringType),
-        th.Property("choice", th.StringType), # seems like NumberType but get: jsonschema.exceptions.ValidationError: '0' is not of type 'number', 'null'
+        th.Property(
+            "choice", th.StringType
+        ),  # seems like NumberType but get: jsonschema.exceptions.ValidationError: '0' is not of type 'number', 'null'
         th.Property("column_label", th.StringType),
         th.Property("comments", th.StringType),
         th.Property("create_roles", th.StringType),
@@ -670,7 +684,9 @@ class SysDictionaryStream(ServiceNowStream):
         th.Property("function_field", th.StringType),
         th.Property("internal_type", th.StringType),
         th.Property("mandatory", th.StringType),
-        th.Property("max_length", th.StringType), # seems like NumberType but get: jsonschema.exceptions.ValidationError: '32' is not of type 'number', 'null'
+        th.Property(
+            "max_length", th.StringType
+        ),  # seems like NumberType but get: jsonschema.exceptions.ValidationError: '32' is not of type 'number', 'null'
         th.Property("next_element", th.StringType),
         th.Property("primary", th.StringType),
         th.Property("read_only", th.StringType),
@@ -690,7 +706,9 @@ class SysDictionaryStream(ServiceNowStream):
         th.Property("sys_created_on", th.DateTimeType),
         th.Property("sys_customer_update", th.StringType),
         th.Property("sys_id", th.StringType),
-        th.Property("sys_mod_count", th.StringType), # seems like NumberType but get: jsonschema.exceptions.ValidationError: '0' is not of type 'number', 'null'
+        th.Property(
+            "sys_mod_count", th.StringType
+        ),  # seems like NumberType but get: jsonschema.exceptions.ValidationError: '0' is not of type 'number', 'null'
         th.Property("sys_name", th.StringType),
         th.Property("sys_policy", th.StringType),
         th.Property("sys_replace_on_upgrade", th.StringType),
@@ -708,7 +726,9 @@ class SysDictionaryStream(ServiceNowStream):
         th.Property("widget", th.StringType),
         th.Property("write_roles", th.StringType),
         th.Property("xml_view", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
+
 class SysUserGroup(ServiceNowStream):
     """Define SysUser stream."""
 
@@ -740,7 +760,9 @@ class SysUserGroup(ServiceNowStream):
         th.Property("type", th.StringType),
         th.Property("u_tier", th.StringType),
         th.Property("vendors", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
+
 class SysUserStream(ServiceNowStream):
     """Define SysUser stream."""
 
@@ -760,7 +782,8 @@ class SysUserStream(ServiceNowStream):
         th.Property("sys_id", th.StringType),
         th.Property("sys_updated_on", th.DateTimeType),
         th.Property("user_name", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class SnTaHiringCoreJobRequisitionStream(ServiceNowStream):
     """Define sn_ta_hiring_core_job_requisition stream."""
@@ -914,7 +937,8 @@ class SnTaHiringCoreJobRequisitionStream(ServiceNowStream):
         th.Property("work_notes", th.StringType),
         th.Property("work_start", th.StringType),
         th.Property("working_hours", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class CmnCostCenterStream(ServiceNowStream):
     """Define cmn_cost_center stream."""
@@ -964,7 +988,8 @@ class CmnCostCenterStream(ServiceNowStream):
         th.Property("u_type", th.StringType),
         th.Property("valid_from", th.StringType),
         th.Property("valid_to", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class UXlkSalesforceEngagementsStream(ServiceNowStream):
     """Define u_xlk_salesforce_engagements stream."""
@@ -1002,13 +1027,16 @@ class UXlkSalesforceEngagementsStream(ServiceNowStream):
         th.Property("u_salesforce_parent", th.StringType),
         th.Property("u_tpa_name", th.StringType),
         th.Property("u_type", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class UXlkTaxonomyGeographiesStream(ServiceNowStream):
     """Define u_xlk_taxonomy_geographies stream."""
 
     name = "u_xlk_taxonomy_geographies"
-    path = "/api/now/table/u_xlk_taxonomy_geographies?sysparm_exclude_reference_link=true"
+    path = (
+        "/api/now/table/u_xlk_taxonomy_geographies?sysparm_exclude_reference_link=true"
+    )
     primary_keys: t.ClassVar[list[str]] = ["sys_id"]
     replication_key = "sys_updated_on"
     is_sorted = True
@@ -1048,20 +1076,8 @@ class UXlkTaxonomyGeographiesStream(ServiceNowStream):
         th.Property("u_sales_eligible", th.StringType),
         th.Property("u_saleseligiblechildren", th.StringType),
         th.Property("u_short_name", th.StringType),
-        ).to_dict()
+    ).to_dict()
 
-class SnHrCoreJobProfileStream(ServiceNowStream):
-    """Define sn_hr_core_job_profile stream."""
-
-    name = "sn_hr_core_job_profile"
-    path = "/api/now/table/sn_hr_core_job_profile?sysparm_exclude_reference_link=true"
-    primary_keys: t.ClassVar[list[str]] = ["sys_id"]
-    replication_key = "sys_updated_on"
-    is_sorted = True
-    schema = th.PropertiesList(
-        th.Property("sys_id", th.StringType),
-        th.Property("sys_updated_on", th.DateTimeType),
-        ).to_dict()
 
 class UExternalLookupKeyStream(ServiceNowStream):
     """Define u_external_lookup_key stream."""
@@ -1089,7 +1105,8 @@ class UExternalLookupKeyStream(ServiceNowStream):
         th.Property("u_object_status", th.StringType),
         th.Property("u_object_type", th.StringType),
         th.Property("u_platform", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class UXlkSalesforceOpportunitiesStream(ServiceNowStream):
     """Define u_xlk_salesforce_opportunities stream."""
@@ -1140,7 +1157,8 @@ class UXlkSalesforceOpportunitiesStream(ServiceNowStream):
         th.Property("u_street", th.StringType),
         th.Property("u_subtype", th.StringType),
         th.Property("u_type", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class SnHrCorePeopleRolesStream(ServiceNowStream):
     """Define sn_hr_core_people_roles stream."""
@@ -1162,7 +1180,8 @@ class SnHrCorePeopleRolesStream(ServiceNowStream):
         th.Property("u_role_id", th.StringType),
         th.Property("u_role_name", th.StringType),
         th.Property("u_synced_by", th.StringType),
-        ).to_dict()
+    ).to_dict()
+
 
 class CmnLocationStream(ServiceNowStream):
     """Define cmn_location stream."""
@@ -1228,4 +1247,4 @@ class CmnLocationStream(ServiceNowStream):
         th.Property("u_state_province_code", th.StringType),
         th.Property("u_type", th.StringType),
         th.Property("zip", th.StringType),
-        ).to_dict()
+    ).to_dict()
