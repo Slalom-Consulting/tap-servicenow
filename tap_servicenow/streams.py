@@ -1183,6 +1183,34 @@ class SnHrCorePeopleRolesStream(ServiceNowStream):
     ).to_dict()
 
 
+class SnHrCoreJobProfileStream(ServiceNowStream):
+    """Define sn_hr_core_job_profile stream."""
+
+    name = "sn_hr_core_job_profile"
+    path = "/api/now/table/sn_hr_core_job_profile?sysparm_exclude_reference_link=true"
+    primary_keys: t.ClassVar[list[str]] = ["sys_id"]
+    replication_key = "sys_updated_on"
+    is_sorted = True
+    schema = th.PropertiesList(
+        th.Property("correlation_id", th.StringType),
+        th.Property("sys_created_by", th.StringType),
+        th.Property("sys_created_on", th.DateTimeType),
+        th.Property("sys_domain", th.StringType),
+        th.Property("sys_id", th.StringType),
+        th.Property("sys_mod_count", th.StringType),
+        th.Property("sys_tags", th.StringType),
+        th.Property("sys_updated_by", th.StringType),
+        th.Property("sys_updated_on", th.DateTimeType),
+        th.Property("u_active", th.StringType),
+        th.Property("u_job_family", th.StringType),
+        th.Property("u_job_family_group", th.StringType),
+        th.Property("u_job_level", th.StringType),
+        th.Property("u_profile_id", th.StringType),
+        th.Property("u_profile_name", th.StringType),
+        th.Property("u_synced_by", th.StringType),
+    ).to_dict()
+
+
 class CmnLocationStream(ServiceNowStream):
     """Define cmn_location stream."""
 

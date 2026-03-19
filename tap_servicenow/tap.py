@@ -65,6 +65,7 @@ class TapServiceNow(Tap):
             streams.UExternalLookupKeyStream(self),
             streams.UXlkSalesforceOpportunitiesStream(self),
             streams.SnHrCorePeopleRolesStream(self),
+            streams.SnHrCoreJobProfileStream(self),
             streams.CmnLocationStream(self),
         ]
 
