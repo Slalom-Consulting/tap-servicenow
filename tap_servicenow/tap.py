@@ -37,7 +37,7 @@ class TapServiceNow(Tap):
             "api_url",
             th.StringType,
             description="The url for the API service",
-        )
+        ),
     ).to_dict()
 
     def discover_streams(self) -> list[streams.ServiceNowStream]:
@@ -58,6 +58,15 @@ class TapServiceNow(Tap):
             streams.SysDictionaryStream(self),
             streams.SysUserGroup(self),
             streams.SysUserStream(self),
+            streams.SnTaHiringCoreJobRequisitionStream(self),
+            streams.CmnCostCenterStream(self),
+            streams.UXlkSalesforceEngagementsStream(self),
+            streams.UXlkTaxonomyGeographiesStream(self),
+            streams.UExternalLookupKeyStream(self),
+            streams.UXlkSalesforceOpportunitiesStream(self),
+            streams.SnHrCorePeopleRolesStream(self),
+            streams.SnHrCoreJobProfileStream(self),
+            streams.CmnLocationStream(self),
         ]
 
 
